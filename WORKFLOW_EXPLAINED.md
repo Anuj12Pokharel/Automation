@@ -15,13 +15,13 @@ This n8n workflow simulates an automated "Content Factory" pipeline. It accepts 
 
 ```mermaid
 graph TB
-    A[ Webhook Trigger] --> B[Parse Input]
-    B --> C[ AI (Mock): Video Script]
-    B --> D[ AI (Mock): Gemini Poster]
-    C --> E[ Merge Content]
+    A["Webhook Trigger"] --> B["Parse Input"]
+    B --> C["AI (Mock): Video Script"]
+    B --> D["AI (Mock): Gemini Poster"]
+    C --> E["Merge Content"]
     D --> E
-    E --> F[ Google Sheets]
-    F --> G[ Send Email]
+    E --> F["Google Sheets"]
+    F --> G["Send Email"]
 ```
 
 ---
