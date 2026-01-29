@@ -110,53 +110,49 @@
         },
         {
             "parameters": {
-                "operation": "append",
-                "sheetId": {
-                    "__rl": true,
-                    "value": "YOUR_SHEET_ID_HERE",
-                    "mode": "list",
-                    "cachedResultName": "AI Content Sheet"
+                "values": {
+                    "string": [
+                        {
+                            "name": "sheets_status",
+                            "value": "=✅ MOCK: Would append to Google Sheets\nDocument: 1de98SRPrJ3QBZeeD1SzIprsQIT36oFdGpd32CoX5wwA\nSheet: Sheet1\nProduct: {{ $json.product_name }}\nPlatform: {{ $json.platform }}\nScript: {{ $json.video_script.substring(0, 50) }}...\nPoster: {{ $json.poster_url }}"
+                        }
+                    ]
                 },
-                "range": "A:E",
                 "options": {}
             },
-            "id": "real-google-sheets",
-            "name": "Google Sheets",
-            "type": "n8n-nodes-base.googleSheets",
-            "typeVersion": 4.5,
+            "id": "mock-google-sheets",
+            "name": "Google Sheets (Mock)",
+            "type": "n8n-nodes-base.set",
+            "typeVersion": 1,
             "position": [
                 1340,
                 300
             ],
-            "credentials": {
-                "googleSheetsOAuth2Api": {
-                    "id": "YOUR_CREDENTIALS_ID",
-                    "name": "Google Sheets Account"
-                }
-            }
+            "notesInFlow": true,
+            "notes": "Simulates Google Sheets append - no credentials required"
         },
         {
             "parameters": {
-                "fromEmail": "anujpokharel2@gmail.com",
-                "toEmail": "anujpokharel2engineer@gmail.com",
-                "subject": "New AI Content Generated: {{ $json.product_name }}",
-                "text": "=Here is your generated content:\n\nVideo Script:\n{{ $json.video_script }}\n\nPoster URL:\n{{ $json.poster_url }}",
+                "values": {
+                    "string": [
+                        {
+                            "name": "email_status",
+                            "value": "=✅ MOCK: Email would be sent\nFrom: singhanzali98@gmail.com\nTo: anujpokharel2engineer@gmail.com\nSubject: New AI Content Generated: {{ $json.product_name }}\n\nBody:\n{{ $json.video_script }}\n\nPoster: {{ $json.poster_url }}"
+                        }
+                    ]
+                },
                 "options": {}
             },
-            "id": "real-email",
-            "name": "Send Email",
-            "type": "n8n-nodes-base.emailSend",
-            "typeVersion": 2.1,
+            "id": "mock-email",
+            "name": "Send Email (Mock)",
+            "type": "n8n-nodes-base.set",
+            "typeVersion": 1,
             "position": [
                 1560,
                 300
             ],
-            "credentials": {
-                "smtp": {
-                    "id": "YOUR_SMTP_CREDENTIALS_ID",
-                    "name": "SMTP Account"
-                }
-            }
+            "notesInFlow": true,
+            "notes": "Simulates email sending - no SMTP credentials required"
         }
     ],
     "connections": {
@@ -213,18 +209,18 @@
             "main": [
                 [
                     {
-                        "node": "Google Sheets",
+                        "node": "Google Sheets (Mock)",
                         "type": "main",
                         "index": 0
                     }
                 ]
             ]
         },
-        "Google Sheets": {
+        "Google Sheets (Mock)": {
             "main": [
                 [
                     {
-                        "node": "Send Email",
+                        "node": "Send Email (Mock)",
                         "type": "main",
                         "index": 0
                     }

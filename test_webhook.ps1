@@ -1,7 +1,7 @@
 # test_webhook.ps1
 # Sends a test POST request to the local n8n instance
 
-$url = "http://localhost:5678/webhook/ai-content-factory"
+$url = "http://localhost:5678/webhook-test/ai-content-factory"
 $body = @{
     product_name = "SuperGlow Lipstick"
     platform     = "TikTok"
